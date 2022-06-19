@@ -55,5 +55,7 @@ namespace Lodochniki
             windowRegistration.Show();
             Close();
         }
+
+        // Це было написано во второй ветке
     }
 }
