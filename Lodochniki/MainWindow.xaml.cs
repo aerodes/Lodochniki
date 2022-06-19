@@ -32,7 +32,8 @@ namespace Lodochniki
             {
                 try
                 {
-                    Auth auth = db.Auth.Where(x => x.login == txtLogin.Text).First();
+                    Auth authDefolt = db.Auth.Where(x => x.id_user == 1).First();
+                    Auth auth = db.Auth.Where(x => x.login == txtLogin.Text).DefaultIfEmpty(authDefolt).First();
                     if (txtPass.Text == auth.password)
                     {
                         WindowHome windowHome = new WindowHome();
@@ -55,5 +56,7 @@ namespace Lodochniki
             windowRegistration.Show();
             Close();
         }
+
+        // Це было написано в первой ветки экзамена!!
     }
 }
